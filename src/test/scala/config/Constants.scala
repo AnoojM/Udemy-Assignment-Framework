@@ -17,6 +17,7 @@ object Constants {
   val repeatTimes = conf.getString("repeat").toInt
   val pause = conf.getString("pauseBetweenRequestsMs").toInt
   val pace = conf.getString("paceInMs").toInt
+  val isDebug = conf.getString("isDebug").toBoolean
 
   // Simulation Details
   val httpProtocol = http.baseUrl(baseUrl)

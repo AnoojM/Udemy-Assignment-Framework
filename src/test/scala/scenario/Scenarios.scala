@@ -22,6 +22,8 @@ object Scenarios {
     }
   }
 
-  val scnHotelDetails = createScenario("SCN_HOTEL_DETAILS",Constants.hotelCsvFeeder.circular,HotelRequests.getHotelList,HotelRequests.getHotelDetails)
-  val scnHotelList = createScenario("SCN_HOTEL_LIST",Constants.hotelCsvFeeder.circular,HotelRequests.getHotelList)
+  val clearCache = exec(flushHttpCache)
+  val clearCookies = exec(flushCookieJar)
+  val scnHotelDetails = createScenario("SCN_HOTEL_DETAILS",Constants.hotelCsvFeeder.circular,clearCache,clearCookies,HotelRequests.getHotelList,HotelRequests.getHotelDetails)
+  val scnHotelList = createScenario("SCN_HOTEL_LIST",Constants.hotelCsvFeeder.circular,clearCache,clearCookies,HotelRequests.getHotelList)
 }
